@@ -29,7 +29,11 @@ cursor = connection.cursor()
 # cursor.execute('SELECT * FROM "Album" WHERE "ArtistId" = %s', [51])
 
 # Query 6 - select all tracks where the composer is "Queen" from the "Track" table
-cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Queen"])
+# cursor.execute('SELECT * FROM "Track" WHERE "Composer" = %s', ["Queen"])
+
+# Query 7 - select only the tracks with "ArtistId" #52 from the "Track" table which has not such id
+cursor.execute('SELECT * FROM "Track" WHERE "ArtistId" = %s' , [152])
+# Output :   psycopg2.errors.UndefinedColumn: column "ArtistId" does not exist
 
 # fetch the results (multiple)
 results = cursor.fetchall()
